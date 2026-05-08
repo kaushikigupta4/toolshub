@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown, Menu, X, FileIcon } from 'lucide-react';
-import { categories } from '../config/tools';
+import { categories } from '../../config/tools';
 
 const Navbar: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);

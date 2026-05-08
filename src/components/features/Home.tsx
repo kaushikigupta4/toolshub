@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
-import { categories } from '../config/tools';
+import { categories } from '../../config/tools';
 import { Zap, Shield, CheckCircle2, ArrowRight } from 'lucide-react';
 
 export default function Home() {

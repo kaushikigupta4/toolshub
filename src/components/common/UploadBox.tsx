@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Upload, FileText, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { cn } from '../lib/utils';
+import { cn } from '../../lib/utils';
 
 export default function UploadBox({ onFileSelect, selectedFiles, onClear, allowMultiple, accept }) {
   const [isDragging, setIsDragging] = useState(false);

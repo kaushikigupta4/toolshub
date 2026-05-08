@@ -2,10 +2,10 @@ import React, { Suspense, lazy } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { Loader2, FileText as FileIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import Navbar from './components/Navbar';
+import Navbar from './components/common/Navbar';
 
-const Home = lazy(() => import('./components/Home'));
-const ToolContainer = lazy(() => import('./components/ToolContainer'));
+const Home = lazy(() => import('./components/features/Home'));
+const ToolContainer = lazy(() => import('./components/tools/ToolContainer'));
 
 export default function App() {
   const location = useLocation();

@@ -2,8 +2,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { toolSEOData } from '../config/seoContent';
-import { allTools } from '../config/tools';
+import { toolSEOData } from '../../config/seoContent';
+import { allTools } from '../../config/tools';
 import { motion, AnimatePresence } from 'motion/react';
 import { HelpCircle, CheckCircle2, ChevronDown, ArrowRight } from 'lucide-react';
 
