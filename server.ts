@@ -381,13 +381,31 @@ async function startServer() {
   });
 
   // Vite
-  if (process.env.NODE_ENV !== 'production') {
-    const vite = await createViteServer({
-      server: { middlewareMode: true },
-      appType: 'spa',
-    });
-    app.use(vite.middlewares);
-  } else {
+if (process.env.NODE_ENV !== 'production') {
+  const { default: react } = await import('@vitejs/plugin-react');
+  const { default: tailwindcss } = await import('@tailwindcss/vite');
+
+  const vite = await createViteServer({
+    configFile: false,   // ← never touch vite.config.ts
+    root: process.cwd(),
+    plugins: [react(), tailwindcss()],
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, '.'),
+      },
+    },
+    define: {
+      'process.env.GEMINI_API_KEY': JSON.stringify(process.env.GEMINI_API_KEY),
+    },
+    server: {
+      middlewareMode: true,
+      hmr: process.env.DISABLE_HMR !== 'true',
+    },
+    appType: 'spa',
+  });
+  app.use(vite.middlewares);
+
+} else {
     const distPath = path.join(process.cwd(), 'dist');
     if (fs.existsSync(distPath)) {
       app.use(express.static(distPath));
